@@ -18,7 +18,6 @@ class Animal:
 
         print(f"You adopted {self.name} !")
 
-
     def setAggr(self, newAggr):
         diff = newAggr - self.aggr
         prefix = "+" if diff > 0 else ""
@@ -26,14 +25,12 @@ class Animal:
         self.aggr = newAggr
         print(f"{prefix}{diff} aggressivity points ({self.aggr})")
 
-
     def setCute(self, newCute):
         diff = newCute - self.cute
         prefix = "+" if diff > 0 else ""
 
         self.cute = newCute
         print(f"{prefix}{diff} cuteness points ({self.cute})")
-
 
     def setAge(self, newAge):
         self.age = newAge
@@ -45,18 +42,14 @@ class Animal:
         else:
             print(f"{self.name} died :(")
 
-
     def isAlive(self):
         return self.alive
-
 
     def getAge(self):
         return self.age
 
-
     def getName(self):
         return self.name
-
 
     def pet(self):
         rand = randint(1,5)
@@ -67,7 +60,6 @@ class Animal:
             print(f"{self.name} {self.attack} you !")
             self.setAggr(self.aggr + 1)
 
-
     def giveTreat(self):
         rand = randint(1,5)
         if rand >= 2:
@@ -76,7 +68,6 @@ class Animal:
         else:
             print(f"{self.name} {self.attack} you !")
             self.setAggr(self.aggr + 1)
-
 
     def prompt(self):
         print(f"{self.name} wants you to do something !")
@@ -90,7 +81,6 @@ class Animal:
             self.giveTreat()
 
 
-
 class Cat(Animal):
     def __init__(self, name) -> None:
         super().__init__(name)
@@ -99,7 +89,6 @@ class Cat(Animal):
         self.attack = "scratches"
 
         self.ageMax = 12
-
 
 
 class Dog(Animal):
@@ -112,7 +101,6 @@ class Dog(Animal):
         self.ageMax = 15
 
 
-
 class Capybara(Animal):
     def __init__(self, name) -> None:
         super().__init__(name)
@@ -123,10 +111,9 @@ class Capybara(Animal):
         self.ageMax = 11
 
 
-
 def main():
     while True:
-        newName = input(f"Insert name for pet : ")
+        newName = input("Insert name for pet : ")
         specie = choice(["cat", "dog", "capybara"])
 
         match specie:
