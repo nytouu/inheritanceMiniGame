@@ -22,7 +22,7 @@ Animal::setAggr(int newAggr)
 	diff < 0 ? prefix = ' ' : prefix = '+';
 
 	aggr = newAggr;
-	std::cout << prefix << diff << " aggressivity points" << std::endl;
+	std::cout << prefix << diff << " aggressivity points (" << aggr << ")" << std::endl;
 }
 
 void
@@ -35,7 +35,7 @@ Animal::setCute(int newCute)
 	diff < 0 ? prefix = ' ' : prefix = '+';
 
 	cute = newCute;
-	std::cout << prefix << diff << " cuteness points" << std::endl;
+	std::cout << prefix << diff << " cuteness points (" << cute << ")" << std::endl;
 }
 
 void
@@ -49,7 +49,7 @@ Animal::setAge(int newAge)
 	if (alive)
 		std::cout << name << " is " << age << " years old !" << std::endl;
 	else
-		std::cout << name << "died ! :(" << std::endl;
+		std::cout << name << " died ! :(" << std::endl;
 
 }
 
@@ -75,17 +75,16 @@ void
 Animal::pet()
 {
 	int random = rand() % 5 + 1;
-	std::cout << random << std::endl;
 
 	if (random >= 3)
 	{
-		std::cout << name << scream << std::endl;
-		setCute(cute++);
+		std::cout << name << " " << scream << " !" << std::endl;
+		setCute(cute + 1);
 	}
 	else
 	{
-		std::cout << name << attack << " you !" << std::endl;
-		setAggr(aggr++);
+		std::cout << name << " " << attack << " you !" << std::endl;
+		setAggr(aggr + 1);
 	}
 }
 
@@ -96,13 +95,13 @@ Animal::giveTreat()
 
 	if (random >= 2)
 	{
-		std::cout << name << scream << std::endl;
-		setCute(cute++);
+		std::cout << name << " " << scream << " !" << std::endl;
+		setCute(cute + 1);
 	}
 	else
 	{
-		std::cout << name << attack << " you !" << std::endl;
-		setAggr(aggr++);
+		std::cout << name << " " << attack << " you !" << std::endl;
+		setAggr(aggr + 1);
 	}
 }
 
@@ -112,19 +111,23 @@ Animal::prompt()
 	char choice;
 
 	std::cout << name << " wants you to do somehting !" << std::endl;
-	std::cout << "What will you do ? : (p)et, give (t)reat - ";
+	std::cout << "What will you do ? : (p)et, give (t)reat - " << std::endl;
+
 	std::cin >> choice;
 
 	switch(choice)
 	{
 		case 'p':
-			setAge(age++);
+			setAge(age + 1);
 			pet();
+			break;
 		case 't':
-			setAge(age++);
+			setAge(age + 1);
 			giveTreat();
+			break;
 		default:
 			std::cout << "Invalid input" << std::endl;
+			break;
 	}
 }
 

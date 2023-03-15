@@ -1,6 +1,17 @@
 #include <iostream>
 #include "Animal.cpp"
 
+
+const char species[3] = {'c', 'd', 'C'};
+
+
+inline void pause()
+{
+    std::string dummy;
+    std::cout << "Enter to continue..." << std::endl;
+    std::getline(std::cin, dummy);
+}
+
 int
 main()
 {
@@ -10,14 +21,16 @@ main()
     char specie;
     Animal *animal;
     std::string newName;
-    char species[3] = {'c', 'd', 'C'};
 
-    for(;;)
+    while (true)
     {
         int choice = rand() % 3;
         char specie = species[choice];
 
-        std::cout << specie << std::endl;
+        std::cout << "Choose a name for your new pet ! : " << std::endl;
+        std::cin >> newName;
+
+        std::cout << newName << " is a " << specie << "!" << std::endl;
 
         switch(specie)
         {
@@ -34,15 +47,27 @@ main()
             default:
                 std::cout << "Invalid type" << std::endl;
         }
+        #ifdef _WIN32 || _WIN64
+            system("cls");
+        #elif __linux__
+            system("clear");
+        #endif
 
         while (animal->isAlive())
         {
-            /* system("clear"); */
-
             animal->prompt();
-        }
 
-        break;
+            std::cin.ignore();
+            pause();
+
+            system("clear");
+            #ifdef _WIN32 || _WIN64
+                system("cls");
+            #elif __linux__
+                system("clear");
+            #endif
+
+        }
     }
 
     return 0;

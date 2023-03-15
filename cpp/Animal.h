@@ -8,12 +8,12 @@ class Animal {
 		std::string name;
 		int age = 0;
 
-		int ageMax;
+		int ageMax = 10;
 		std::string scream;
 		std::string attack;
 
-		int aggr;
-		int cute;
+		int aggr = 1;
+		int cute = 1;
 
 		bool alive = true;
 
@@ -40,6 +40,26 @@ class Cat : public Animal {
 		int ageMax = 12;
 	public:
           Cat(std::string name);
+};
+
+class Dog : public Animal {
+	private:
+		std::string scream = "barks";
+		std::string attack = "bites";
+
+		int ageMax = 15;
+	public:
+          Dog(std::string name);
+};
+
+class Capybara : public Animal {
+	private:
+		std::string scream = "growls";
+		std::string attack = "bites";
+
+		int ageMax = 11;
+	public:
+          Capybara(std::string name);
 };
 
 #endif
