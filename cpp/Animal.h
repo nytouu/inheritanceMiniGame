@@ -39,7 +39,7 @@ class Cat : public Animal {
 
 		int ageMax = 12;
 	public:
-          Cat(std::string name);
+		Cat(std::string name);
 };
 
 class Dog : public Animal {
@@ -49,7 +49,7 @@ class Dog : public Animal {
 
 		int ageMax = 15;
 	public:
-          Dog(std::string name);
+		Dog(std::string name);
 };
 
 class Capybara : public Animal {
@@ -59,7 +59,7 @@ class Capybara : public Animal {
 
 		int ageMax = 11;
 	public:
-          Capybara(std::string name);
+		Capybara(std::string name);
 };
 
 #endif
